@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<h:head>
+
+	<meta charset="UTF-8"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+	<title>SecureDB</title>
+	<link
+		href="https://fonts.googleapis.com/css?family=Roboto:300,400,700|Roboto+Condensed:300,400,700|Roboto+Slab:300,400,700"
+		rel="stylesheet" type="text/css"></link>
+	 <link rel="shortcut icon" type="image/x-icon" href="content/images/securedb_icon.ico" />
+	<link rel="stylesheet" href="content/css/bootstrap.css"></link>
+	<link rel="stylesheet" href="content/css/datetimepicker.css"></link>
+	<link rel="stylesheet" href="content/css/main.css"></link>
+	<link rel="stylesheet" href="content/css/toastr.css"></link>
+
+
+</h:head>
+
+<h:body>
+
+
+	<div class="navbar navbar-inverse navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".header-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="javascript:void(0);"><i
+					class="glyphicon glyphicon-wrench"></i> BestGadgets</a>
+			</div>
+
+			<div class="collapse navbar-collapse header-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="Home.xhtml"><i
+							class="glyphicon glyphicon-home"></i> &nbsp; Home</a></li>
+					<li><a href="javascript:void(0);"><i
+							class="glyphicon glyphicon-search"></i> &nbsp; Search</a></li>
+					<li><a href="javascript:void(0);"><i
+							class="glyphicon glyphicon-signal"></i> &nbsp; Reports</a></li>
+					<li><a href="alerts.html"><i
+							class="glyphicon glyphicon-bell"></i> &nbsp; Alerts</a></li>
+				</ul>
+				<div class="navbar-right">
+					<ul class="nav navbar-nav">
+						<li><a href="javascript:void(0);"><i
+								class="glyphicon glyphicon-usd"></i> &nbsp; Billing</a></li>
+						<li><a href="Setting.xhtml"><i
+								class="glyphicon glyphicon-cog"></i> &nbsp; Settings</a></li>
+
+						<li class="dropdown"><a href="javascript:void(0);"
+							class="dropdown-toggle" data-toggle="dropdown"><i
+								class="glyphicon glyphicon-user"></i> &nbsp; John Smith <span
+								class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="javascript:void(0);">Profile</a></li>
+								<li><a href="javascript:void(0);">Sign Out</a></li>
+							</ul></li>
+						<li><img src="content/images/securedb_logo.png" class="logo"></img></li>
+					</ul>
+				</div>
+
+
+				<form class="navbar-form navbar-right hidden">
+					<div class="form-group">
+						<input type="text" placeholder="Email" class="form-control"></input>
+					</div>
+					<div class="form-group">
+						<input type="password" placeholder="Password" class="form-control"></input>
+					</div>
+					<button type="submit" class="btn btn-success">Sign in</button>
+				</form>
+
+				<p class="navbar-text navbar-right hidden"></p>
+
+
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- main content starts-->
+	<div class="box">
+		<ui:insert name="content">
+
+		</ui:insert>
+
+	</div>
+	<!-- main content ends -->
+
+
+	<!-- footer starts -->
+	<div class="footer"></div>
+	<!-- footer ends -->
+
+
+
+	<script>
+		var securedb = window.securedb || {};
+	</script>
+	<script src="scripts/jquery.js"></script>
+	<script src="scripts/bootstrap.min.js"></script>
+	<script src="scripts/toastr.js"></script>
+	<script src="scripts/moment.js"></script>
+	<script src="scripts/knockout.js"></script>
+	<script src="scripts/knockout.validation.js"></script>
+	<script src="scripts/highcharts.js"></script>
+	<script src="scripts/highcharts-funnel.js"></script>
+	<script src="scripts/datetimepicker.js"></script>
+	<script src="app/scripts/config.js"></script>
+	<script src="app/scripts/utility.js"></script>
+	<script src="app/scripts/mock.js"></script>
+	<script src="app/scripts/data-source.js"></script>
+	<script src="app/scripts/chart-creator.js"></script>
+
+
+	<script>
+		$('#main-navigation li').click(
+				function() {
+					var currentSelection = $(this).find('a').contents().eq(1)
+							.text();
+					$('#main-navigation li').removeClass('active')
+					$(
+							'#main-navigation li a:contains("'
+									+ currentSelection + '")').parent('li')
+							.addClass('active')
+				});
+	</script>
+
+	<ui:insert name="scripts">
+	</ui:insert>
+
+
+
+</h:body>
+
+
+</html>

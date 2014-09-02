@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<ui:composition template="./template.xhtml">
+
+	<ui:define name="content">
+
+		<div class="row">
+
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="panel panel-default">
+						<div class="panel-heading">Settings</div>
+						<div class="panel-body">
+							<table class="table table-no-top-border">
+								<tbody>
+									<!-- <tr>
+                                        <td style="padding: 5px;">
+                                            <div class="bar-label">Application:</div>
+                                            <div>
+                                                <select class="full-width">
+                                                    <option selected="">Wireless Gadgets</option>
+                                                    <option>Gaming Gadgets</option>
+                                                    <option>Wearable Gadgets</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr> -->
+									<tr>
+										<td style="padding: 5px;">
+											<div class="bar-label">Start Time:</div>
+											<div class='input-group date' id="start-date">
+												<input type="text" class="form-control"></input> <span
+													class="input-group-addon"><span
+													class="glyphicon glyphicon-calendar"></span> </span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td style="padding: 5px;">
+											<div class="bar-label">End Time:</div>
+											<div class='input-group date' id="end-date">
+												<input type="text" class="form-control"></input> <span
+													class="input-group-addon"><span
+													class="glyphicon glyphicon-calendar"></span> </span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td><button class="btn btn-sm"
+												data-bind="click:getDataFromServer">Fetch Data</button> <span
+											style="display: none" id="homepg-loader-sym"
+											class="pull-right"></span></td>
+									</tr>
+									<tr></tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+			<div class="col-md-3">
+				<div class="panel panel-default">
+					<div class="panel-heading">Failure Authentication By Type</div>
+					<div class="panel-body clearfix">
+						<div class="chart-container-head"></div>
+						<div class="chart-container-body">
+							<div id="auth-failure-detail-chart"></div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="panel panel-default">
+					<div class="panel-heading">Successful Authentication By Type</div>
+					<div class="panel-body clearfix">
+						<div class="chart-container-head"></div>
+						<div class="chart-container-body">
+							<div id="auth-success-detail-chart"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+			<div class="col-md-3">
+				<div class="panel panel-default">
+					<div class="panel-heading">Success v/s Failed Setup Auths</div>
+					<div class="panel-body clearfix">
+						<div class="chart-container-head"></div>
+						<div class="chart-container-body">
+							<div id="success-vs-failure-count-chart"></div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="panel panel-default">
+					<div class="panel-heading">Activites</div>
+					<div class="panel-body clearfix">
+						<div class="chart-container-head"></div>
+						<div class="chart-container-body">
+							<div id="activity-detail-chart"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+		<div class="row">
+
+			<div class="panel panel-default">
+				<div class="panel-heading">Devices</div>
+				<div class="panel-body clearfix">
+					<div class="chart-container-head"></div>
+					<div class="chart-container-body">
+						<div id="device-count-chart"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+	</ui:define>
+
+
+
+	<ui:define name="scripts">
+
+		<script src="app/scripts/page-scripts/home.js"></script>
+		<script>
+			securedb.home.init();
+		</script>
+
+	</ui:define>
+
+
+
+</ui:composition>
+
+
+
+</html>

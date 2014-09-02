@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition>
+	<div class="row" data-bind="with:profile">
+		<div class="col-xs-9">
+			<div class="clearfix">
+				<div class="pull-left">
+					<a href="javascript:void(0);" class="btn btn-default"
+						data-bind="click:showCreateNewProfileTemplate">Add Field</a> <a
+						href="javascript:void(0);" class="btn btn-default"
+						data-bind="click:deleteProfile">Delete</a>
+				</div>
+				<div class="pull-right">
+					<a href="javascript:void(0);" class="btn btn-default disabled">&lt;
+						Previous </a> <input class="paginator" type="text"
+						placeholder="1 of 1"></input> <a href="javascript:void(0);"
+						class="btn btn-default disabled">Next &gt; </a>
+				</div>
+			</div>
+			<br></br>
+			<table id="t1" class="table">
+				<thead>
+					<tr>
+						<th scope="col" style="width: 20px;"><input type="checkbox" data-bind="click:selectAllProfile"></input></th>
+						<th scope="col">Field</th>
+						<th scope="col">Required</th>
+						<th scope="col">Type</th>
+						<th scope="col">Encryption</th>
+					</tr>
+				</thead>
+				<tbody>
+				
+				<tr class="template">
+							<td>&nbsp;</td>
+							<td><input type="text" data-bind="value:newProfile.field"></input></td>
+							<td><input type="checkbox" data-bind="checked:newProfile.required"></input></td>
+							<td data-bind="text:newProfile.type"></td>
+							<td><select data-bind="value:newProfile.selectedEncryption">
+									<option value="None">None</option>
+									<option value="DET">DET</option>
+									<option value="Name">Name</option>
+									<option value="Password">Password</option>
+									<option value="PROB">PROB</option>
+							</select> &nbsp; &nbsp;
+							 <a href="javascript:void(0);" class="btn btn-sm btn-primary" data-bind="click:addNewProfile" >Add</a>
+							 <a href="javascript:void(0);" class="btn btn-sm btn-default" data-bind="click:hideCreateNewProfileTemplate">Cancel</a></td>
+						</tr>
+				
+					<!-- ko foreach: profiles-->
+
+					<tr data-bind="css:{success:type=='Standard'}">
+						<td data-bind="if:type!='Standard'"><input type="checkbox"  data-bind="checked:selection"></input></td>
+							<td data-bind="text:field"></td>
+							<td><input type="checkbox" data-bind="checked:required"></input></td>
+							<td data-bind="text:type"></td>
+							<td><select data-bind="options:$parent.encryptions;optionsText:'selectedEncryption'"></select></td>
+					</tr>
+
+					<!-- /ko -->
+				</tbody>
+			</table>
+		</div>
+	</div>
+</ui:composition>
+</html>

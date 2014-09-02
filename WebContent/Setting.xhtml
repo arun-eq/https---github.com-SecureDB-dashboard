@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="./template.xhtml">
+
+	<ui:define name="content">
+
+
+
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#pane-settings-security"
+				data-toggle="tab"><i class="glyphicon glyphicon-lock"></i>
+					&nbsp; Security</a></li>
+			<li><a href="#pane-settings-profile" data-toggle="tab"><i
+					class="glyphicon glyphicon-user"></i> &nbsp; Profile</a></li>
+			<li><a href="#pane-settings-email" data-toggle="tab"><i
+					class="glyphicon glyphicon-envelope"></i> &nbsp; Email</a></li>
+			<li><a href="#pane-settings-account" data-toggle="tab"><i
+					class="glyphicon glyphicon-briefcase"></i> &nbsp; Account</a></li>
+			<li><a href="#pane-settings-2fa" data-toggle="tab"><i
+					class="glyphicon glyphicon-tasks"></i> &nbsp; 2FA</a></li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane active" id="pane-settings-security">
+				<br></br>
+				<ui:include src="/templates/settings-template/security.xhtml">
+
+				</ui:include>
+
+			</div>
+			<div class="tab-pane " id="pane-settings-profile">
+				<br></br>
+				<ui:include src="/templates/settings-template/profile.xhtml">
+
+				</ui:include>
+
+			</div>
+			<div class="tab-pane " id="pane-settings-email">
+				<br></br>
+				<ui:include src="/templates/settings-template/mail.xhtml">
+
+				</ui:include>
+			</div>
+			<div class="tab-pane " id="pane-settings-account">
+				<br></br>
+				<ui:include src="/templates/settings-template/account.xhtml">
+
+				</ui:include>
+			</div>
+			<div class="tab-pane " id="pane-settings-2fa">
+			<br></br>
+				<div class="row">
+					<div class="col-sm-12">
+
+						<div class="col-lg-6">
+							<div class="panel panel-default">
+								<div class="panel-heading">2FA</div>
+
+
+								<div class="panel-body clearfix"
+									data-bind="with:TwofactorAuthentication">
+
+									<ul class="list-group" data-bind="foreach:errors">
+										<li class="list-group-item" data-bind="text:$data"></li>
+									</ul>
+
+									<ul class="list-unstyled">
+										<li class="form-group"><label> <input
+												data-bind="checked:twoFactorAuth" value="1" name="2FA"
+												type="radio"></input> Enable 2FA for all roles
+
+										</label></li>
+										<li class="form-group"><label> <input
+												data-bind="checked:twoFactorAuth" value="2" name="2FA"
+												type="radio"></input>Enable 2FA for fallowing roles
+										</label>
+											<ul class="list-style-none">
+												<li><label><input value="3"
+														data-bind="checked:rolesSelected" type="checkbox"></input>
+														Users</label></li>
+												<li><label><input value="4"
+														data-bind="checked:rolesSelected" type="checkbox"></input>
+														Managers</label></li>
+												<li><label><input value="5"
+														data-bind="checked:rolesSelected" type="checkbox"></input>
+														Admin</label></li>
+											</ul></li>
+										<li class="form-group"><label> <input
+												data-bind="checked:twoFactorAuth" value="6" name="2FA"
+												type="radio"></input>Enable 2FA for URL
+										</label></li>
+										<li class="form-group"
+											data-bind="visible:twoFactorAuth()=='6'"><label
+											class="full-width"> <input
+												placeholder="Enter url here"
+												data-bind="value:currentEnteredUrl" type="text"></input>
+												<button type="submit" data-bind="click:addUrl"
+													class="btn btn-sm  btn-default">Add</button>
+										</label></li>
+									</ul>
+									<table class="table table-no-top-border"
+										style="min-width: 50%; width: auto;"
+										data-bind="foreach:urls,visible:twoFactorAuth()=='6'">
+										<tbody>
+											<tr>
+												<td data-bind="text:$data"></td>
+												<td><a href="javascript:void(0);"
+													class="btn btn-sm btn-default"><i
+														class="glyphicon glyphicon-remove"></i></a></td>
+											</tr>
+										</tbody>
+									</table>
+									<br />
+									<button class="btn btn-default" data-bind="click:save">Save</button>
+
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="panel panel-default">
+								<div class="panel-heading">Step Up</div>
+								<div class="panel-body clearfix">
+									<ul class="list-unstyled">
+										<li class="form-group"><label> <input name="2FA"
+												type="radio"></input>Enable Step Up
+										</label>
+											<ul class="list-style-none">
+												<li><label><input type="checkbox"></input>
+														Based on IP Policy</label></li>
+												<li><label><input type="checkbox"></input>
+														Based on Time of the day</label></li>
+												<li><label><input type="checkbox"></input>
+														Based on new device</label></li>
+												<li><label><input type="checkbox"></input>
+														Based on region</label></li>
+											</ul></li>
+										<li class="form-group"><label> <input name="2FA"
+												type="radio"></input>Enable Step Up for fallowing URLs
+										</label></li>
+										<li class="form-group"><label class="full-width">
+												<input placeholder="Enter url here" type="text"></input>
+												<button type="submit" class="btn btn-sm  btn-default">Add</button>
+										</label></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-12">
+
+						<div class="col-lg-6">
+							<div class="panel panel-default">
+								<div class="panel-heading">2FA Methods</div>
+								<div class="panel-body clearfix">
+									<ul class="list-unstyled">
+										<li><label><input name="2FA-Method" type="radio"></input>SMS</label></li>
+										<li><label><input name="2FA-Method" type="radio"></input>TOTP</label></li>
+										<li><label><input name="2FA-Method" type="radio"></input>Email</label></li>
+									</ul>
+
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="panel panel-default">
+								<div class="panel-heading">Step Up methods</div>
+								<div class="panel-body clearfix">
+									<div class="panel-body clearfix">
+
+
+										<ul class="list-unstyled">
+											<li><label><input name="2FA-Method" type="radio"></input>SMS</label></li>
+											<li><label><input name="2FA-Method" type="radio"></input>TOTP</label></li>
+											<li><label><input name="2FA-Method" type="radio"></input>Email</label></li>
+										</ul>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+	</ui:define>
+	<ui:define name="scripts">
+		<script src="app/scripts/page-scripts/setting.js"></script>
+		<script>
+			ko.applyBindings(securedb.setting.vm);
+		</script>
+	</ui:define>
+
+</ui:composition>
+</html>

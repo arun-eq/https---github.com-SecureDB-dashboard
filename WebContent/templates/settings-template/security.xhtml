@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition>
+
+
+
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">Suspicious Activities</div>
+					<div class="panel-body">
+						<table class="table table-no-top-border">
+							<tbody>
+								<tr>
+									<td width="20"><input type="checkbox" id="a1"></input></td>
+									<td><label for="a1">Alert when different users
+											sign in from same IP</label></td>
+								</tr>
+								<tr>
+									<td width="20"><input type="checkbox" id="a2"></input></td>
+									<td><label for="a2">Alert when same user signs in
+											from different Ip addresses simultaneously</label></td>
+								</tr>
+								<tr>
+									<td width="20"><input type="checkbox" id="a3"></input></td>
+									<td><label for="a3">Alert when more than <input
+											type="text" style="width: 3em;" class="numeric" value="20"></input>
+											% of sign-ins fail
+									</label></td>
+								</tr>
+								<tr>
+									<td width="20"><input type="checkbox" id="a4"></input></td>
+									<td><label for="a4">Alert when more than <input
+											type="text" style="width: 3em;" class="numeric" value="20"></input>
+											% of sign-ins are stepped-up
+									</label></td>
+								</tr>
+								<tr>
+									<td width="20"><input type="checkbox" id="a5"></input></td>
+									<td><label for="a5">Alert when more than <input
+											type="text" style="width: 3em;" class="numeric" value="10"></input>
+											% of profiles are updated
+									</label></td>
+								</tr>
+								<tr>
+									<td width="20"><input type="checkbox" id="a6"></input></td>
+									<td><label for="a6">Alert when more than <input
+											type="text" style="width: 3em;" class="numeric" value="10"></input>
+											% of profiles are locked
+									</label></td>
+								</tr>
+								<tr>
+									<td width="20"><input type="checkbox" id="a7"></input></td>
+									<td><label for="a7">Alert when more than <input
+											type="text" style="width: 3em;" class="numeric" value="10"></input>
+											% of profiles are reset
+									</label></td>
+								</tr>
+								<tr>
+									<td width="20"><input type="checkbox" id="a8"></input></td>
+									<td><label for="a8">Alert when bait accounts show
+											activity</label></td>
+								</tr>
+								<tr>
+									<td width="20"><input type="checkbox" id="a9"></input></td>
+									<td><label for="a9">Alert and monitor the
+											following accounts:</label>
+										<div class="v-spacer"></div>
+										<table class="table table-no-top-border"
+											style="min-width: 50%; width: auto;">
+											<tbody>
+												<tr>
+													<th scope="col">Account Username</th>
+													<th scope="col" width="20">&nbsp;</th>
+												</tr>
+												<tr>
+													<td><input type="text" class="full-width"></input></td>
+													<td><a href="javascript:void(0);"
+														class="btn btn-sm btn-default"><i
+															class="glyphicon glyphicon-plus"></i></a></td>
+												</tr>
+												<tr>
+													<td>make.mischief@dupe.com</td>
+													<td><a href="javascript:void(0);"
+														class="btn btn-sm btn-default"><i
+															class="glyphicon glyphicon-remove"></i></a></td>
+												</tr>
+												<tr>
+													<td>real.hacker@dupe.com</td>
+													<td><a href="javascript:void(0);"
+														class="btn btn-sm btn-default"><i
+															class="glyphicon glyphicon-remove"></i></a></td>
+												</tr>
+											</tbody>
+										</table></td>
+								</tr>
+								<tr>
+									<td width="20"><input type="checkbox" id="a9"></input></td>
+									<td><label for="a9">Alert and monitor the
+											following IP addresses:</label>
+										<div class="v-spacer"></div>
+										<table class="table table-no-top-border"
+											style="min-width: 50%; width: auto;">
+											<tbody>
+												<tr>
+													<th scope="col">IP Address</th>
+													<th scope="col" width="20">&nbsp;</th>
+												</tr>
+												<tr>
+													<td><input type="text" class="full-width">></input></td>
+													<td><a href="javascript:void(0);"
+														class="btn btn-sm btn-default"><i
+															class="glyphicon glyphicon-plus"></i></a></td>
+												</tr>
+												<tr>
+													<td>48.361.230.57</td>
+													<td><a href="javascript:void(0);"
+														class="btn btn-sm btn-default"><i
+															class="glyphicon glyphicon-remove"></i></a></td>
+												</tr>
+												<tr>
+													<td>116.298.133.45</td>
+													<td><a href="javascript:void(0);"
+														class="btn btn-sm btn-default"><i
+															class="glyphicon glyphicon-remove"></i></a></td>
+												</tr>
+											</tbody>
+										</table></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">Allowed IP Addresses To Access
+						REST APIs</div>
+					<div class="panel-body">
+						<table class="table table-no-top-border"
+							style="min-width: 50%; width: auto;">
+							<tbody>
+								<tr>
+									<th scope="col">IP Address</th>
+									<th scope="col" width="20">&nbsp;</th>
+								</tr>
+								<tr>
+									<td><input type="text" class="full-width"></input></td>
+									<td><a href="javascript:void(0);"
+										class="btn btn-sm btn-default"><i
+											class="glyphicon glyphicon-plus"></i></a></td>
+								</tr>
+								<tr>
+									<td>48.361.230.57</td>
+									<td><a href="javascript:void(0);"
+										class="btn btn-sm btn-default"><i
+											class="glyphicon glyphicon-remove"></i></a></td>
+								</tr>
+								<tr>
+									<td>116.298.133.45</td>
+									<td><a href="javascript:void(0);"
+										class="btn btn-sm btn-default"><i
+											class="glyphicon glyphicon-remove"></i></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="panel panel-default">
+					<div class="panel-heading">Allowed IP Addresses To Access
+						Proxy</div>
+					<div class="panel-body">
+						<table class="table table-no-top-border"
+							style="min-width: 50%; width: auto;">
+							<tbody>
+								<tr>
+									<th scope="col">IP Address</th>
+									<th scope="col" width="20">&nbsp;</th>
+								</tr>
+								<tr>
+									<td><input type="text" class="full-width"></input></td>
+									<td><a href="javascript:void(0);"
+										class="btn btn-sm btn-default"><i
+											class="glyphicon glyphicon-plus"></i></a></td>
+								</tr>
+								<tr>
+									<td>48.361.230.57</td>
+									<td><a href="javascript:void(0);"
+										class="btn btn-sm btn-default"><i
+											class="glyphicon glyphicon-remove"></i></a></td>
+								</tr>
+								<tr>
+									<td>116.298.133.45</td>
+									<td><a href="javascript:void(0);"
+										class="btn btn-sm btn-default"><i
+											class="glyphicon glyphicon-remove"></i></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="panel panel-default">
+					<div class="panel-heading">Allowed IP Addresses To Access
+						This Dashboard</div>
+					<div class="panel-body">
+						<table class="table table-no-top-border"
+							style="min-width: 50%; width: auto;">
+							<tbody>
+								<tr>
+									<th scope="col">IP Address</th>
+									<th scope="col" width="20">&nbsp;</th>
+								</tr>
+								<tr>
+									<td><input type="text" class="full-width"></input></td>
+									<td><a href="javascript:void(0);"
+										class="btn btn-sm btn-default"><i
+											class="glyphicon glyphicon-plus"></i></a></td>
+								</tr>
+								<tr>
+									<td>48.361.230.57</td>
+									<td><a href="javascript:void(0);"
+										class="btn btn-sm btn-default"><i
+											class="glyphicon glyphicon-remove"></i></a></td>
+								</tr>
+								<tr>
+									<td>116.298.133.45</td>
+									<td><a href="javascript:void(0);"
+										class="btn btn-sm btn-default"><i
+											class="glyphicon glyphicon-remove"></i></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="panel panel-default">
+					<div class="panel-heading">Block Authentication From These IP
+						Addresses</div>
+					<div class="panel-body">
+						<table class="table table-no-top-border"
+							style="min-width: 50%; width: auto;">
+							<tbody>
+								<tr>
+									<th scope="col">IP Address</th>
+									<th scope="col" width="20">&nbsp;</th>
+								</tr>
+								<tr>
+									<td><input type="text" class="full-width"></input></td>
+									<td><a href="javascript:void(0);"
+										class="btn btn-sm btn-default"><i
+											class="glyphicon glyphicon-plus"></i></a></td>
+								</tr>
+								<tr>
+									<td>110.61.820.99</td>
+									<td><a href="javascript:void(0);"
+										class="btn btn-sm btn-default"><i
+											class="glyphicon glyphicon-remove"></i></a></td>
+								</tr>
+								<tr>
+									<td>16.98.187.61</td>
+									<td><a href="javascript:void(0);"
+										class="btn btn-sm btn-default"><i
+											class="glyphicon glyphicon-remove"></i></a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	
+
+
+</ui:composition>
+</html>
